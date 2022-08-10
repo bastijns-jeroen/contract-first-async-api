@@ -1,0 +1,27 @@
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          producer-properties:
+            #You have to use the custom serializers and the registry config, in order to have schema validation
+            key:
+              serializer: org.apache.kafka.common.serialization.StringSerializer
+            value:
+              serializer: io.apicurio.registry.serde.avro.AvroKafkaSerializer
+            apicurio:
+              registry:
+                url: http://localhost:8888
+                # Specify whether the serializer tries to find the latest artifact in the registry for the corresponding group ID and artifact ID
+                # If not set fails on finding the artifact... We must declare a version somewhere?
+                find-latest: true
+                artifact-resolver-strategy: io.apicurio.registry.serde.avro.strategy.RecordIdStrategy
+#        bindings:
+#          vehicleRefueled-out-0:
+#            producer:
+#              configuration:
+#                apicurio:
+#                  registry:
+#                    artifact:
+#                      version: 1
+

@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    function:
+      definition:
+    stream:
+      default:
+        producer:
+          #forces Spring Cloud Stream to delegate serialization to the provided classes
+          useNativeEncoding: true
+      bindings:
+        vehicleRefueled-out-0:
+          destination: vehicle.refueled
+          content-type: application/*+avro
+
+      kafka:
+        binder:
+          brokers: localhost
+          defaultBrokerPort: 29092

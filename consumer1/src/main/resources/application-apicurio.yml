@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          consumer-properties:
+            #You have to use the custom serializers and the registry config, in order to have schema validation
+            key:
+              deserializer: org.apache.kafka.common.serialization.StringDeserializer
+            value:
+              deserializer: io.apicurio.registry.serde.avro.AvroKafkaDeserializer
+            apicurio:
+              registry:
+                url: http://localhost:8888
+                # Needed to deserialize a Schema generated Object instead of GenericRecord.
+                use-specific-avro-reader: true

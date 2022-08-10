@@ -1,0 +1,21 @@
+asyncapi: '2.4.0'
+info:
+  title: Vehicle monitoring service
+  version: 2.0.0
+  description: This service monitors fleet vehicles
+channels:
+  vehicleRefueled:
+    subscribe:
+      message:
+        title: vehicle refueled
+        name: vehicle refueled
+        description: vehicle refueled
+        contentType: 'avro/binary'
+        schemaFormat: 'application/vnd.apache.avro+json;version=1.11.0'
+        payload:
+          $ref: 'http://localhost:8081/subjects/vehicle.refueled-value/versions/4/#/VehicleRefueled'
+        bindings:
+          kafka:
+            key:
+              type: string
+            bindingVersion: 'latest'

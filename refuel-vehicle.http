@@ -1,0 +1,10 @@
+POST http://localhost:8080/vehicle/refuel
+Content-Type: application/json
+
+{
+  "licensePlate": "1-VHX-234",
+  "fuelType": "DIESEL",
+  "fuelAmount": 23.45,
+  "fuelUnit": "LITER",
+  "city": "Mechelen"
+}

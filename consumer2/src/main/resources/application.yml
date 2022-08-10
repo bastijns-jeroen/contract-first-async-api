@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    function:
+      definition: vehicleConsumer
+    stream:
+      default:
+        consumer:
+          useNativeDecoding: true
+      bindings:
+        vehicleConsumer-in-0:
+          destination: vehicle.refueled
+          content-type: application/*+avro
+          group: consumer2
+
+      kafka:
+        binder:
+          brokers: localhost
+          defaultBrokerPort: 29092
