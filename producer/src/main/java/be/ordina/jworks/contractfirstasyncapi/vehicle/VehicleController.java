@@ -1,6 +1,5 @@
 package be.ordina.jworks.contractfirstasyncapi.vehicle;
 
-import be.ordina.jworks.contractfirstasyncapi.Coordinates;
 import be.ordina.jworks.contractfirstasyncapi.FuelType;
 import be.ordina.jworks.contractfirstasyncapi.FuelUnit;
 import be.ordina.jworks.contractfirstasyncapi.VehicleRefueled;
@@ -27,11 +26,11 @@ public class VehicleController {
                 .setFuelType(FuelType.valueOf(refuelVehicle.fuelType()))
                 .setFuelAmount(refuelVehicle.fuelAmount())
                 .setFuelUnit(FuelUnit.valueOf(refuelVehicle.fuelUnit()))
-//                .setCity(refuelVehicle.city())
-                .setLocation(Coordinates.newBuilder()
-                        .setLatitude(23.567)
-                        .setLongitude(26.56)
-                        .build())
+                .setCity(refuelVehicle.city())
+//                .setLocation(Coordinates.newBuilder()
+//                        .setLatitude(23.567)
+//                        .setLongitude(26.56)
+//                        .build())
                 .build();
         streamBridge.send("vehicleRefueled-out-0", MessageBuilder.withPayload(vehicleRefueled)
                 .setHeader(KafkaHeaders.MESSAGE_KEY, refuelVehicle.licensePlate())

@@ -18,8 +18,7 @@
           "DIESEL",
           "LPG",
           "CNG",
-          "ELECTRICITY",
-          "TEST"
+          "ELECTRICITY"
         ]
       },
       "doc": "The fuel type of the vehicle"
@@ -41,11 +40,6 @@
         ]
       },
       "doc": "The fuel unit"
-    },
-    {
-      "name": "city",
-      "type": "string",
-      "doc": "The city in which the vehicle is refueled"
     }
   ]
 }
